@@ -1,0 +1,5 @@
+Declare
+@Max_PRMS_CoLOS_ID int,
+@Max_CoLOS_ID int; select @Max_PRMS_CoLOS_ID = Max_CoLOS_ID
+from openquery(FEX_PROD, 'SELECT max(CoLOS_ID) Max_CoLOS_ID FROM V84WAPFEX.PRMS_CoLOS_Pallets_Streamwood'); Select @Max_CoLOS_ID = max(ID) from MES_PalletCounter with (nolock);
+select @Max_PRMS_CoLOS_ID, @Max_CoLOS_ID, @Max_CoLOS_ID - @Max_PRMS_CoLOS_ID as [Records Missing]
